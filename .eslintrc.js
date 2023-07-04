@@ -41,7 +41,7 @@ module.exports = {
         'linebreak-style': 0,
         'i18next/no-literal-string': ['warn', { markupOnly: true }],
         'max-len': ['warn', {
-            code: 120,
+            code: 100,
             ignoreComments: true,
         }],
     },
