@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
     const { t } = useTranslation('about');
+
     return (
         <div>
-            {t('О сайте1')}
-
+            {t('О сайте')}
         </div>
     );
 };
