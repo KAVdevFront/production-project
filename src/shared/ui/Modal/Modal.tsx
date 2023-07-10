@@ -1,5 +1,5 @@
-﻿import { classNames } from 'shared/lib/classNames/classNames';
 import React, { ReactNode } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
