@@ -12,7 +12,8 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:ui:ci":"loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ok": "loki approve",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook"
   },
@@ -61,6 +62,7 @@
     "jest": "^27.5.1",
     "loki": "^0.28.1",
     "mini-css-extract-plugin": "^2.5.3",
+    "reg-cli": "^0.17.7",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
