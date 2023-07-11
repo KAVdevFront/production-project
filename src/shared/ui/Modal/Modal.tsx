@@ -1,6 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, {
+    ReactNode, useCallback, useEffect, useRef, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
+import { Portal } from '../Portal/Portal';
 
 interface ModalProps {
     className?:string
@@ -14,11 +18,36 @@ export const Modal = (props:ModalProps) => {
         className, children, isOpen, onClose,
     } = props;
 
-    const closeHandler = () => {
+    const [isClosing, setIsClosing] = useState(false);
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+    const { theme } = useTheme();
+
+    const closeHandler = useCallback(() => {
         if (onClose) {
-            onClose();
+            setIsClosing(true);
+            timerRef.current = setTimeout(() => {
+                onClose();
+                setIsClosing(false);
+            }, 300);
         }
-    };
+    }, [onClose]);
+
+    const onKeyDown = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            closeHandler();
+        }
+    }, [closeHandler]);
+
+    useEffect(() => {
+        if (isOpen) {
+            window.addEventListener('keydown', onKeyDown);
+        }
+        return () => {
+            clearTimeout(timerRef.current);
+            window.removeEventListener('keydown', onKeyDown);
+        };
+    }, [isOpen, onKeyDown]);
 
     const onContentClick = (e:React.MouseEvent) => {
         e.stopPropagation();
@@ -26,19 +55,27 @@ export const Modal = (props:ModalProps) => {
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
+        [cls.isClosing]: isClosing,
+        [cls[theme]]: true,
     };
 
     return (
-
-        <div className={classNames(cls.Modal, mods, [className])}>
-            <div className={cls.overlay} onClick={closeHandler}>
-                <div
-                    className={classNames(cls.content, { [cls.contentOpened]: isOpen })}
-                    onClick={onContentClick}
-                >
-                    {children}
+        <Portal>
+            <div className={classNames(cls.Modal, mods, [className])}>
+                <div className={cls.overlay} onClick={closeHandler}>
+                    <div
+                        className={cls.content}
+                        onClick={onContentClick}
+                    >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aliquid alias error qui reiciendis incidunt vel,
+                        iure expedita omnis nulla aliquam totam quas,
+                        distinctio odit animi libero fuga sunt ab et.
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
+
     );
 };
