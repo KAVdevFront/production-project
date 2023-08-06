@@ -1,6 +1,7 @@
-﻿import { userActions, userReducer } from './model/slice/userSlice';
+import { userActions, userReducer } from './model/slice/userSlice';
 import type { UserSchema, User } from './model/types/user';
 import { getUserAuthData } from './model/selectors/getUserAuthData/getuserAuthData';
+import { getUserInited } from './model/selectors/getUserInited/getUserInited';
 
 export {
     userReducer,
@@ -8,4 +9,5 @@ export {
     UserSchema,
     User,
     getUserAuthData,
+    getUserInited,
 };
