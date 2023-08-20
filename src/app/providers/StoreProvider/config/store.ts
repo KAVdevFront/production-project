@@ -6,6 +6,7 @@ import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
+import { scrollSaveReducer } from 'features/ScrollSave';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -19,6 +20,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollSave: scrollSaveReducer,
 
     };
 
@@ -33,7 +35,6 @@ export function createReduxStore(
             thunk: {
                 extraArgument: {
                     api: $api,
-                    navigate,
                 },
             },
         }),
