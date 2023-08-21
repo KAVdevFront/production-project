@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Card } from './Card';
+import { Card, CardTheme } from './Card';
 import { Text } from '../Text/Text';
 
 export default {
@@ -16,7 +16,13 @@ export default {
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Normal = Template.bind({});
+Normal.args = {
+    children: <Text title="title" text="text text" />,
+};
+
+export const Outline = Template.bind({});
+Outline.args = {
+    theme: CardTheme.OUTLINED,
     children: <Text title="title" text="text text" />,
 };

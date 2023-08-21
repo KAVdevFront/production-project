@@ -9,10 +9,11 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { NavigateOptions } from 'react-router';
 import { To } from 'history';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { ArticleDetailsCommentSchema, ArticleDetailsRecommendationSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/model/types';
 
 export interface StateSchema{
     counter:CounterSchema;
@@ -22,9 +23,9 @@ export interface StateSchema{
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
-    artilceDetailsComments?:ArticleDetailsCommentSchema
     addCommentForm?:AddCommentFormSchema
     articlesPage?:ArticlesPageSchema
+    articleDetailsPage?:ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
