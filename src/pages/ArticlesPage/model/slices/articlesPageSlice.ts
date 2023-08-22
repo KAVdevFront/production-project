@@ -35,7 +35,7 @@ const articlesPageSlice = createSlice({
         search: '',
         order: 'asc',
         limit: 4,
-        type: ArticleType.ALL
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -54,7 +54,7 @@ const articlesPageSlice = createSlice({
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload;
         },
-         setType: (state, action: PayloadAction<ArticleType>) => {
+        setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
         },
         initState: (state) => {
@@ -66,11 +66,11 @@ const articlesPageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchArticlesList.pending, (state,action) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
-                if(action.meta.arg.replace){
-                    articlesAdapter.removeAll(state)
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
                 }
             })
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
@@ -78,11 +78,10 @@ const articlesPageSlice = createSlice({
 
                 state.hasMore = action.payload.length >= state.limit;
 
-                if(action.meta.arg.replace){
-                    articlesAdapter.setAll(state,action.payload)
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
                 } else {
-                articlesAdapter.addMany(state, action.payload);
-
+                    articlesAdapter.addMany(state, action.payload);
                 }
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {

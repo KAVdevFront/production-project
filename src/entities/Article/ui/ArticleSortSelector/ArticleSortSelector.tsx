@@ -1,6 +1,6 @@
-﻿import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SortOrder } from 'shared/types';
 import cls from './ArticleSortSelector.module.scss';
@@ -44,13 +44,6 @@ export const ArticleSortSelector = ({
         },
     ], [t]);
 
-    const changeSortHandler = useCallback((newSort:string) => {
-        onChangeSort(newSort as ArticleSortField);
-    }, [onChangeSort]);
-
-    const changeOrderHandler = useCallback((newOrder:string) => {
-        onChangeOrder(newOrder as SortOrder);
-    }, [onChangeOrder]);
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select

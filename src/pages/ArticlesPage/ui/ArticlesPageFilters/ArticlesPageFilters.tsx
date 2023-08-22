@@ -1,4 +1,4 @@
-﻿import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback } from 'react';
 import {
     ArticleSortField, ArticleTypeTabs, ArticleView, ArticleViewSelector,

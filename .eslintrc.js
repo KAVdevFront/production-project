@@ -22,6 +22,8 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'ulbi-tv-plugin',
+
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -47,7 +49,7 @@ module.exports = {
             'warn',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'alt'],
+                ignoreAttribute: ['data-testid', 'to', 'alt', 'target'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
@@ -57,7 +59,13 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'warn',
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'ulbi-tv-plugin/path-checker': 'error',
         'react/no-array-index-key': 'off',
+        'no-unused-vars': 'off',
+    //     '@typescript-eslint/no-unused-vars': [
+    //          'error',
+    //     { 'argsIgnorePattern': '^_' }
+    // ],
 
     },
     globals: {

@@ -1,4 +1,4 @@
-﻿import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import {
     MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
@@ -17,6 +17,8 @@ interface PageProps {
     children:ReactNode
     onScrollEnd?:()=>void
 }
+
+export const PAGE_ID = 'PAGE_ID';
 
 export const Page = ({ className, children, onScrollEnd }:PageProps) => {
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -43,6 +45,7 @@ export const Page = ({ className, children, onScrollEnd }:PageProps) => {
             className={classNames(cls.Page, {}, [className])}
             ref={wrapperRef}
             onScroll={onScroll}
+            id={PAGE_ID}
         >
             {children}
             {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}

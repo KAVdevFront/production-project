@@ -1,4 +1,3 @@
-﻿import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
