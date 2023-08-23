@@ -49,7 +49,7 @@ module.exports = {
             'warn',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'alt', 'target'],
+                ignoreAttribute: ['data-testid', 'to', 'alt', 'target', 'direction'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 125 }],
@@ -61,11 +61,12 @@ module.exports = {
         'no-undef': 'off',
         'ulbi-tv-plugin/path-checker': 'error',
         'react/no-array-index-key': 'off',
+        'react/jsx-no-useless-fragment':'off',
         'no-unused-vars': 'off',
-    //     '@typescript-eslint/no-unused-vars': [
-    //          'error',
-    //     { 'argsIgnorePattern': '^_' }
-    // ],
+        //     '@typescript-eslint/no-unused-vars': [
+        //          'error',
+        //     { 'argsIgnorePattern': '^_' }
+        // ],
 
     },
     globals: {
