@@ -601,6 +601,24 @@
       "userId": "1",
       "text": "123213",
       "id": "Zu_RNuF"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "21ffe3213",
+      "id": "Rl38wgn"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "ewg",
+      "id": "mFF3u9P"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "gewgew",
+      "id": "lzX77Bb"
     }
   ],
   "users": [
@@ -623,10 +641,10 @@
     {
       "id": "1",
       "first": "artem",
-      "lastname": "kalinin",
+      "lastname": "kalinin1",
       "age": 465,
-      "currency": "RUB",
-      "country": "Kazahstan",
+      "currency": "USD",
+      "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
